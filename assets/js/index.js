@@ -1,17 +1,4 @@
-/*!
 
- =========================================================
- * Paper Kit 2 - v2.0.0
- =========================================================
-
- * Product Page: http://www.creative-tim.com/product/paper-kit-2
- * Copyright 2017 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/timcreative/paper-kit/blob/master/LICENSE.md)
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- */
 
 var searchVisible = 0;
 var transparent = true;
@@ -24,14 +11,14 @@ var navbar_initialized = false;
 $(document).ready(function(){
     window_width = $(window).width();
 
-    //  Activate the tooltips
+    //  Activation des Tooltips
     $('[data-toggle="tooltip"]').tooltip();
 
-    //      Activate the switches with icons
+    //     Activation du button responsive
     if($('.switch').length != 0){
         $('.switch')['bootstrapSwitch']();
     }
-    //      Activate regular switches
+    //      Icones réguliers (version : desktop)
     if($("[data-toggle='switch']").length != 0){
          $("[data-toggle='switch']").bootstrapSwitch();
     }
@@ -64,7 +51,7 @@ $(document).ready(function(){
         });
     };
 
-    // Navbar color change on scroll
+    // Changement de la couleur de la navbar en scrollant
     if($('.navbar[color-on-scroll]').length != 0){
         $(window).on('scroll', pk.checkScrollForTransparentNavbar)
     }
@@ -84,13 +71,13 @@ $(document).ready(function(){
         $(this).parent(".input-group").removeClass("input-group-focus");
     });
 
-    // Init popovers
+    // Popovers
     pk.initPopovers();
 
-    // Init Collapse Areas
+    // Collapses Areas
     pk.initCollapseArea();
 
-    // Init Sliders
+    // Sliders
     pk.initSliders();
 
 });
@@ -158,7 +145,7 @@ pk = {
         if($('[data-toggle="popover"]').length != 0){
             $('body').append('<div class="popover-filter"></div>');
 
-            //    Activate Popovers
+            //  Activation du Popover
            $('[data-toggle="popover"]').popover().on('show.bs.popover', function () {
                 $('.popover-filter').click(function(){
                     $(this).removeClass('in');
@@ -216,7 +203,7 @@ pk = {
             });
     },
     initSliders: function(){
-        // Sliders for demo purpose in refine cards section
+        // Sliders
         if($('#sliderRegular').length != 0 ){
             var rangeSlider = document.getElementById('sliderRegular');
             noUiSlider.create(rangeSlider, {
@@ -250,7 +237,7 @@ examples = {
         var mapOptions = {
           zoom: 14,
           center: myLatlng,
-          scrollwheel: false, //we disable de scroll over the map, it is a really annoing when you scroll through page
+          scrollwheel: false, //Désactivation du scroll
         }
         var map = new google.maps.Map(document.getElementById("contactUsMap"), mapOptions);
 
@@ -259,15 +246,11 @@ examples = {
             title:"Hello World!"
         });
 
-        // To add the marker to the map, call setMap();
+        // Pour ajouter un marker
         marker.setMap(map);
         }
 }
 
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds. If `immediate` is passed, trigger the function on the
-// leading edge, instead of the trailing.
 
 function debounce(func, wait, immediate) {
 	var timeout;
