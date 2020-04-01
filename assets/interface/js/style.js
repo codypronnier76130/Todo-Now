@@ -388,6 +388,9 @@
             },
     
             onTabShow: function(tab, navigation, index) {
+
+
+
                 var $total = navigation.find('li').length;
                 var $current = index+1;
     
@@ -413,26 +416,32 @@
 
                 // Event en fonction des tabs
                 if($current === 1){
-                    $("#details").hide();
-                    $('#captain').hide();
-                    $('#description').hide();
+                    $("#list").hide();
+                    $('#focus').hide();
+                    $('#calendar').hide();
+
+
+
                     let $button = $($wizard).find('.btn-next');
+
+
+
                     $button.show();
                     $($wizard).find('.btn-next').val("Ajouter une tâche rapide");
 
 
 
                     $($button).click(function(){
-                        $("#details").fadeIn();
+                        $("#list").fadeIn();
                         $($button).val("Valider");
                     });
 
 
                 }else if($current === 2){
 
-                    $('#details').hide();
-                    $('#description').hide();
-                    $('#captain').fadeIn();
+                    $('#list').hide();
+                    $('#calendar').hide();
+                    $('#focus').fadeIn();
                     $($wizard).find('.btn-next').val("Réglages du Focus");
 
 
@@ -444,8 +453,8 @@
 
 
                     $($chronometre).click(function(){
-
-                        var timer2 = "25:01";
+                        let activeBreak = true;
+                        var timer2 = "00:11";
                         var interval = setInterval(function() {
                         
                         
@@ -458,10 +467,26 @@
                           if (minutes < 0) clearInterval(interval);
                           seconds = (seconds < 0) ? 59 : seconds;
                           seconds = (seconds < 10) ? '0' + seconds : seconds;
-                          //minutes = (minutes < 10) ?  minutes : minutes;
+
+
+
+
+
                           $chronometre.html(minutes + ':' + seconds);
                           timer2 = minutes + ':' + seconds;
+
+                          if(timer2 == "0:00" && activeBreak === true){
+                            activeBreak = false;
+                            $($wizard).find('.choice h6').html('Have a break 🎈');
+                            timer2 = "0:30";
+                        }else if(timer2 == "0:00" && activeBreak === false){
+                            $chronometre.html("25:00");
+                            stop();
+                        }
+
                         }, 1000);
+
+
 
                     });
 
@@ -470,9 +495,9 @@
 
                 }else if ($current === 3){
 
-                    $('#details').hide();
-                    $('#description').hide();
-                    $('#captain').hide();
+                    $('#list').hide();
+                    $('#calendar').hide();
+                    $('#focus').hide();
                     let $button2 = $($wizard).find('.btn-next');
                     $button2.show();
                     $($wizard).find('.btn-next').val("Ajouter des tâches");
@@ -480,7 +505,7 @@
                     console.log($current);
 
                     $($button2).click(function(){
-                        $("#description").fadeIn();
+                        $("#calendar").fadeIn();
                         $($button2).val("Valider");
                     });
 

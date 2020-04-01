@@ -88,7 +88,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
     text-transform: uppercase;
   }
   
-  .description {
+  .calendar {
     color: #9A9A9A;
   }
   
@@ -1817,16 +1817,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
     color: #FFFFFF !important;
   }
   .section-image .category,
-  .section-image .description,
-  .section-image .card-plain .card-description,
+  .section-image .calendar,
+  .section-image .card-plain .card-calendar,
   .section-image .card-plain .card-category,
   .section-gold .category,
-  .section-gold .description,
-  .section-gold .card-plain .card-description,
+  .section-gold .calendar,
+  .section-gold .card-plain .card-calendar,
   .section-gold .card-plain .card-category,
   .section-dark .category,
-  .section-dark .description,
-  .section-dark .card-plain .card-description,
+  .section-dark .calendar,
+  .section-dark .card-plain .card-calendar,
   .section-dark .card-plain .card-category {
     color: rgba(255, 255, 255, 0.7);
   }
@@ -2406,7 +2406,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
     transition: none;
   }
   
-  #description-areas .nav-stacked .nav-link.active:before,
+  #calendar-areas .nav-stacked .nav-link.active:before,
   #navtabs-row .nav-stacked .nav-link.active:before {
     border-right: 11px solid #F1EAE0;
     border-top: 11px solid transparent;
@@ -2418,7 +2418,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
     bottom: 7px;
   }
   
-  #description-areas .nav-stacked .nav-link.active:after,
+  #calendar-areas .nav-stacked .nav-link.active:after,
   #navtabs-row .nav-stacked .nav-link.active:after {
     border-right: 11px solid #FFFFFF;
     border-top: 11px solid transparent;
@@ -2460,16 +2460,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
     max-width: 100%;
   }
   
-  .img-details {
+  .img-list {
     min-height: 50px;
     padding: 0 4px 0.5em;
   }
   
-  .img-details img {
+  .img-list img {
     width: 50px;
   }
   
-  .img-details .author {
+  .img-list .author {
     margin-left: 10px;
     margin-top: -21px;
     width: 40px;
@@ -2570,7 +2570,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
   .card .card-block .card-footer {
     padding: 0;
   }
-  .card .card-block .card-description + .card-footer {
+  .card .card-block .card-calendar + .card-footer {
     padding-top: 10px;
   }
   .card.no-transition:hover, .card.card-register:hover, .card.page-carousel:hover {
@@ -2584,7 +2584,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
   .section-dark .card-profile.card-plain .card-title {
     color: #FFFFFF !important;
   }
-  .section-dark .card-profile.card-plain .card-description {
+  .section-dark .card-profile.card-plain .card-calendar {
     color: rgba(255, 255, 255, 0.7);
   }
   
@@ -6303,7 +6303,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
   .presentation .colors{
       padding: 100px 0;
   }
-  .presentation > .description{
+  .presentation > .calendar{
       padding-top: 20px;
   }
   .presentation .section-rotation{
@@ -6379,7 +6379,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
   .presentation .card-component img{
       width: 100%;
   }
-  .presentation .description .col-md-3{
+  .presentation .calendar .col-md-3{
       width: 16%;
       margin-left: 4%;
   }
@@ -6767,7 +6767,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
       font-size: 18px;
       line-height: 38px;
   }
-  .info .description .btn{
+  .info .calendar .btn{
       width: 240px;
       font-weight: 500;
   }
@@ -7359,7 +7359,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td
       content: "\ea19";
   }
   
-  .nc-calendar-60::before {
+  .nc-focus-60::before {
       content: "\ea1a";
   }
   

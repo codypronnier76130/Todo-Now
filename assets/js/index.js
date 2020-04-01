@@ -38,7 +38,7 @@ $(document).ready(function(){
         $('#datetimepicker').datetimepicker({
             icons: {
                 time: "fa fa-clock-o",
-                date: "fa fa-calendar",
+                date: "fa fa-focus",
                 up: "fa fa-chevron-up",
                 down: "fa fa-chevron-down",
                 previous: 'fa fa-chevron-left',

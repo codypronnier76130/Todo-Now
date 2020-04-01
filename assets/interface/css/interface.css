@@ -212,8 +212,8 @@
     margin-bottom: 30px;
   }
   
-  .description,
-  .card-description,
+  .calendar,
+  .card-calendar,
   .footer-big p {
     color: #999999;
   }
@@ -524,7 +524,7 @@
   .wizard-card .btn-finish {
     display: none;
   }
-  .wizard-card .description {
+  .wizard-card .calendar {
     color: #999999;
     font-size: 14px;
   }
