@@ -34,7 +34,7 @@
                         <span class="navbar-toggler-bar"></span>
                     </button>
                     
-                    <a class="navbar-brand" href="index.html">T O D O  N O W<img class="" src="./assets/img/icon.png" width="60" height="60"></img></a>
+                    <a style="cursor: pointer; color: white;" class="navbar-brand">T O D O  N O W<img class="" src="./assets/img/icon.png" width="60" height="60"></img></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav ml-auto">
@@ -52,11 +52,11 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" rel="tooltip" title="" data-placement="bottom">
-                                <i class="far fa-focus"></i>
-                                <p class="hidden-lg-up"> focus</p>
+                                <i class="far fa-calendar"></i>
+                                <p class="hidden-lg-up"> Calendar</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" id="btn-register">
                             <a class="btn btn-light btn-round">S'inscrire</a>
                         </li>
                         <li class="nav-item" id="btn-login">
@@ -164,8 +164,35 @@
     <!------------------------------------[SECTION INSCRIPTION ]------------------------------------------>
     <!---------------------------------------------------------------------------------------------------->
     <!---------------------------------------------------------------------------------------------------->
+    <div class="wrapper" id="register">
+        <div class="page-header section-dark" style="background-image: url('./assets/img/home/background.jpg')">
+            <div class="filter"></div>
+            <div class="content-center">
+                <div class="container">
 
+                
+                    <div class="register-page">
+                        <div class="form">
 
+                          <form class="login-form">
+                            <input type="text" placeholder="Entrez un pseudo"/>
+                            <input type="mail" placeholder="Entrez une adresse mail"/>
+                            <input type="password" placeholder="Entrez un mot de passe"/>
+                            <button>S'inscrire</button>
+                            <p class="message">Déjà inscrit ? <a href="#">Connexion</a></p>
+                          </form>
+
+                        </div>
+                    </div>
+                
+                
+                </div>
+            </div>
+            <div class="moving-clouds" style="opacity: 0.3; background-image: url('http://demos.creative-tim.com/paper-kit-2/assets/img/clouds.png'); ">
+
+            </div>
+        </div>
+  </div>
     <!---------------------------------------------------------------------------------------------------->
     <!---------------------------------------------------------------------------------------------------->
     <!------------------------------------[FIN SECTION INSCRIPTION ]-------------------------------------->
