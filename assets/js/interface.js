@@ -40,24 +40,7 @@
             }
         };
     
-        this.next = function(e) {
-    
-            // If we clicked the last then dont activate this
-            if(element.hasClass('last')) {
-                return false;
-            }
-    
-            if($settings.onNext && typeof $settings.onNext === 'function' && $settings.onNext($activeTab, $navigation, obj.nextIndex())===false){
-                return false;
-            }
-    
-            // Did we click the last button
-            $index = obj.nextIndex();
-            if($index > obj.navigationLength()) {
-            } else {
-                $navigation.find(baseItemSelector + ':eq('+$index+') a').tab('show');
-            }
-        };
+
     
         this.previous = function(e) {
     
@@ -388,7 +371,7 @@
 
                 var $total = navigation.find('li').length;
                 var $current = index+1;
-    
+                
                 var $wizard = navigation.closest('.wizard-card');
 
 
@@ -411,30 +394,96 @@
 
                 // Event en fonction des tabs
                 if($current === 1){
-                    $("#list").hide();
+                    $("#listCrud").hide();
                     $('#focus').hide();
                     $('#calendar').hide();
-
+                    $('#list').show();
 
 
                     let $button = $($wizard).find('.btn-next');
-
 
 
                     $button.show();
                     $($wizard).find('.btn-next').val("Ajouter une tâche rapide");
 
 
+                    //Ajout de la liste de taches
+                    let $listContainer = $($wizard).find('.todo-list');
+                    $listContainer.empty();
 
-                    $($button).click(function(){
-                        $("#list").fadeIn();
-                        $($button).val("Valider");
+                    if(localStorage.getItem('Taches') !== null){
+                        storedTaches.forEach(el => {
+                            let tacheInList = '<label class="todo"><input class="todo__state" type="checkbox" /><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 25" class="todo__icon"><use xlink:href="#todo__line" class="todo__line"></use><use xlink:href="#todo__box" class="todo__box"></use><use xlink:href="#todo__check" class="todo__check"></use><use xlink:href="#todo__circle" class="todo__circle"></use></svg><div class="todo__text">'+ el +'</div></label>';
+                            $($listContainer).append(tacheInList);
+    
+                        });
+                    }else{
+                        console.log('Aucune tâche trouvée');
+                    }
+
+
+                    
+                    //REMOVE DES TACHES
+                    let btnRemoveTaches = $('#btn-removeTaches');
+
+                    $(btnRemoveTaches).click(function(){
+                        localStorage.removeItem('Taches');
+                        $listContainer.empty();
                     });
 
 
-                }else if($current === 2){
 
+
+
+
+
+                    $($button).click(function(){
+                        if($button.val() === "Ajouter une tâche rapide"){
+                            //Affichage du crud
+                            $('#list').hide();
+                            $("#listCrud").fadeIn();
+                            $($button).val("Valider");
+                            //-------------------
+
+                        }else if($button.val() === "Valider"){
+
+                            //On valide le crud
+                            let addListeTitle = $("#addListeTitle").val();
+                            
+
+                            if(addListeTitle === ''){
+                                //On repasse sur la vue
+                                $("#listCrud").hide();
+                                $('#list').fadeIn();
+                                $($button).val("Ajouter une tâche rapide");
+                            }else{
+                                taches[indexTache] = addListeTitle;
+                                indexTache++;
+                                localStorage.setItem("Taches", JSON.stringify(taches));
+                                storedTaches = JSON.parse(localStorage.getItem("Taches"));
+                                $listContainer.empty();
+                                storedTaches.forEach(el => {
+                                    let tacheInList = '<label class="todo"><input class="todo__state" type="checkbox" /><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 25" class="todo__icon"><use xlink:href="#todo__line" class="todo__line"></use><use xlink:href="#todo__box" class="todo__box"></use><use xlink:href="#todo__check" class="todo__check"></use><use xlink:href="#todo__circle" class="todo__circle"></use></svg><div class="todo__text">'+ el +'</div></label>';
+                                    $($listContainer).append(tacheInList);
+            
+                                });
+                                //On repasse sur la vue
+                                $("#listCrud").hide();
+                                $('#list').fadeIn();
+                                $($button).val("Ajouter une tâche rapide");
+                            }
+                        }
+
+
+
+                    });
+
+
+
+
+                }else if($current === 2){
                     $('#list').hide();
+                    $('#listCrud').hide();
                     $('#calendar').hide();
                     $('#focus').fadeIn();
                     $($wizard).find('.btn-next').val("Réglages du Focus");
@@ -445,11 +494,10 @@
 
                     //Lancement de focus on click
                     let $chronometre = $($wizard).find('.material-icons');
-
+                    let canHaveBreak = true;
 
                     $($chronometre).click(function(){
-                        let activeBreak = true;
-                        var timer2 = "00:11";
+                        var timer2 = "00:15";
                         var interval = setInterval(function() {
                         
                         
@@ -463,23 +511,26 @@
                           seconds = (seconds < 0) ? 59 : seconds;
                           seconds = (seconds < 10) ? '0' + seconds : seconds;
 
-
-
-
-
                           $chronometre.html(minutes + ':' + seconds);
                           timer2 = minutes + ':' + seconds;
 
-                          if(timer2 == "0:00" && activeBreak === true){
-                            activeBreak = false;
+                          if(timer2 == "0:00" && canHaveBreak === true){
+                            canHaveBreak = false;
+                            $($chronometre).css('color', 'green');
+                            $($wizard).find('.icon').css('border-color', 'green');
                             $($wizard).find('.choice h6').html('Have a break 🎈');
-                            timer2 = "0:30";
-                        }else if(timer2 == "0:00" && activeBreak === false){
-                            $chronometre.html("25:00");
-                            stop();
+                            timer2 = "0:11";
+                          }
+                          if(timer2 == "0:00" && canHaveBreak === false){
+                            canHaveBreak = true;
+                            $chronometre.html("0:15");
+                            $($chronometre).css('color', '');
+                            $($wizard).find('.icon').css('border-color', '');
+                            $($wizard).find('.choice h6').html("Encore un effort " + localStorage.getItem("Pseudo") + " ⚡");
+                            clearInterval(interval);
                         }
-
                         }, 1000);
+
 
 
 
@@ -489,10 +540,11 @@
 
 
                 }else if ($current === 3){
-
                     $('#list').hide();
+                    $('#listCrud').hide();
                     $('#calendar').hide();
                     $('#focus').hide();
+                    
                     let $button2 = $($wizard).find('.btn-next');
                     $button2.show();
                     $($wizard).find('.btn-next').val("Ajouter des tâches");

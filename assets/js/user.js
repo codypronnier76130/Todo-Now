@@ -69,11 +69,6 @@ $(document).ready( function(){
         if(pseudo == '' || mail == '' || mdp == ''){
             errorText.html('Veuillez remplir tout les champs.');
         }else{
-            if(localStorage.getItem("Pseudo") !== '' || localStorage.getItem("Mail") !== '' || 
-            localStorage.getItem("Mdp") !== ''
-            ){
-                errorText.html('Vous possédez déjà un compte utilisateur.');
-            }else{
                 let user = new User(pseudo, mail, mdp);
 
                 let validationRegister = user.register();
@@ -84,7 +79,7 @@ $(document).ready( function(){
                     $(interface).hide();
                     $(connexion).show();
                 }
-            }
+            
         }
     });
 
