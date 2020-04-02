@@ -2,24 +2,31 @@
 <html lang="fr">
     <head>
         <title>TODO NOW</title>
-        <!-- Meta tags -->
+
+        <!-- META TAGS -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="shortcut icon" type="image/png" href="./assets/img/icon.png"/>
 
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,300,700" crossorigin="anonymous">
+        <!-- Bootstrap [INDEX] CSS -->
+        <link data-role="index" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link data-role="index" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,300,700" crossorigin="anonymous">
+        
+        <!-- Bootstrap [INTERFACE] CSS -->
+        <link data-role="interface" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+        <link data-role="interface" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,300,700" crossorigin="anonymous">
+        
+        <!-- SCRIPT FONT AWESOME -->
         <script src="https://kit.fontawesome.com/7279b46370.js" crossorigin="anonymous"></script>
         
         
-        <!-- Notre Bootstrap -->
-        <link rel="stylesheet" href="./assets/css/index.css">
-        <link rel="stylesheet" href="./assets/css/login.css">
+        <!-- CSS LOCAL -->
+        <link rel="stylesheet" href="./assets/css/index.css" data-role="index">
+        <link rel="stylesheet" href="./assets/css/login.css" data-role="login">
+        <link rel="stylesheet" href="./assets/css/interface.css" data-role="interface">
     </head>
     <body>
-
 
 
     <!---------------------------------------------------------------------------------------------------->
@@ -104,29 +111,19 @@
                         <div class="login-page">
                             <div class="form">
 
-                              <form class="register-form">
-                                <input type="text" placeholder="name"/>
-                                <input type="password" placeholder="Votre mot de passe"/>
-                                <input type="text" placeholder="Votre adresse mail"/>
-                                <button>S'inscrire</button>
-                                <p class="message">Déjà inscrit ? <a href="#">Connexion</a></p>
-                              </form>
-
-                              <form class="login-form">
-                                <input type="text" placeholder="Email"/>
-                                <input type="password" placeholder="Mot de passe"/>
-                                <button>C o n n e x i o n</button>
-                                <p class="message">Pas encore inscrit ? <a href="#">Créer un compte</a></p>
-                              </form>
-
+                              <form action="" style="z-index: 9999;">
+                                <label id="errorLogin" style="color: darkred"></label>
+                                <input id="lg-pseudo" type="text" placeholder="Pseudo"/>
+                                <input id="lg-mdp" type="password" placeholder="Mot de passe"/>
+                                </form>
+                                <button id="btnLoginSubmit" style="cursor: pointer;">C o n n e x i o n</button>
+                                <p class="message">Pas encore inscrit ? <a style="cursor: pointer;" id="switchRegister">Créer un compte</a></p>
+                              
                             </div>
                         </div>
                     
                     
                     </div>
-                </div>
-                <div class="moving-clouds" style="opacity: 0.3; background-image: url('http://demos.creative-tim.com/paper-kit-2/assets/img/clouds.png'); ">
-    
                 </div>
             </div>
       </div>
@@ -156,22 +153,19 @@
                     <div class="register-page">
                         <div class="form">
 
-                          <form class="login-form">
-                            <input type="text" placeholder="Entrez un pseudo"/>
-                            <input type="mail" placeholder="Entrez une adresse mail"/>
-                            <input type="password" placeholder="Entrez un mot de passe"/>
-                            <button>S'inscrire</button>
-                            <p class="message">Déjà inscrit ? <a href="#">Connexion</a></p>
+                          <form action="">
+                            <label id="errorRegister" style="color: darkred"></label>
+                            <input id="rgtPseudo" type="text" placeholder="Entrez un pseudo"/>
+                            <input id="rgtMail" type="mail" placeholder="Entrez une adresse mail"/>
+                            <input id="rgtMdp" type="password" placeholder="Entrez un mot de passe"/>
                           </form>
-
+                          <button id="btnRegisterSubmit" style="cursor: pointer;">S'inscrire</button>
+                          <p class="message">Déjà inscrit ? <a style="cursor: pointer;" id="switchLogin">Connexion</a></p>
                         </div>
                     </div>
                 
                 
                 </div>
-            </div>
-            <div class="moving-clouds" style="opacity: 0.3; background-image: url('http://demos.creative-tim.com/paper-kit-2/assets/img/clouds.png'); ">
-
             </div>
         </div>
   </div>
@@ -194,6 +188,161 @@
     <!---------------------------------------------------------------------------------------------------->
     <!---------------------------------------------------------------------------------------------------->
 
+
+
+    <div class="container image-container set-full-height" id="interface" style=" width: 100%; background-image: url('./assets/img/home/background.jpg')">
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <!-- Wizard container -->
+                <div class="wizard-container">
+                    <div class="card wizard-card" data-color="blue" id="wizard">
+
+                        <form action="" method="">
+                            <div class="wizard-header">
+                                <h3 class="wizard-title">
+                                    TODONOW
+                                </h3>
+                                <h5>Planifiez votre journée et votre réussite !</h5>
+                            </div>
+                            <div class="wizard-navigation">
+                                <ul>
+                                    <li><a href="#list" data-toggle="tab">List</a></li>
+                                    <li><a href="#focus" data-toggle="tab">Focus</a></li>
+                                    <li><a href="#calendar" data-toggle="tab">Calendar</a></li>
+                                </ul>
+                            </div>
+        
+
+
+                            <!-- LISTE DES TACHES RAPIDES-->
+                            <div class="tab-content">
+                                <div class="tab-pane" id="list">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <!-- <h4 class="info-text">Votre TODONOW List :</h4> -->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">Tâche : </i>
+                                                </span>
+                                                <div class="form-group label-floating">
+                                                    <label class="control-label">Décrire un objectif ici</label>
+                                                     <input name="name" type="text" class="form-control" id="add">
+                                                    <ul id="listadd"></ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Choisir une catégorie</label>
+                                                <select class="form-control">
+                                                    <option disabled="" selected=""></option>
+                                                    <option value="Afghanistan"> Catégorie 1 </option>
+                                                    <option value="Afghanistan"> Catégorie 2 </option>
+                                                    <option value="Afghanistan"> Catégorie 3 </option>
+                                                    <option value="Afghanistan"> Catégorie 4 </option>
+                                                    <option value="Afghanistan"> Catégorie 5 </option>
+                                                    <option value="Afghanistan"> Catégorie 6 </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- CHRONOMETRE FOCUS -->
+                                <div class="tab-pane" id="focus">
+                                    <h4 class="info-text">Lancez le chronomètre et réalisez vos tâches !</h4>
+                                    <div class="row">
+                                        <div class="col-sm-10 col-sm-offset-1">
+                                            <div class="col-sm-4">
+                                                <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="This is good if you travel alone."></div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="choice" data-toggle="wizard-radio" rel="tooltip" title="Lancez une session Focus pour compléter vos tâches efficacemment">
+                                                    <input type="radio" name="job" value="Code">
+                                                    <div class="icon">
+                                                        <i class="material-icons">25:00</i>
+                                                    </div>
+                                                    <h6>Let's Work ⏰</h6>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <!-- CALENDRIER -->
+                                <div class="tab-pane" id="focus">
+
+                                </div>
+
+
+
+
+
+                                <!-- AJOUT DE TACHES DANS LE CALENDRIER-->
+                                <div class="tab-pane" id="calendar">
+                                    <div class="row">
+                                        <h4 class="info-text">Votre calendrier 📌</h4>
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label">Choisir une date</label>
+                                                <select class="form-control">
+                                                    <option disabled="" selected=""></option>
+                                                    <option value="date1"> Date 1 </option>
+                                                    <option value="date1"> Date 2 </option>
+                                                    <option value="date1"> Date 3 </option>
+                                                    <option value="date1"> Date 4 </option>
+                                                    <option value="date1"> Date 5 </option>
+                                                </select>
+                                            </div>
+                                        </div>                      
+                                        <div class="col-sm-6 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>Liste des tâches du : 01/04/2020</label>
+                                                <textarea class="form-control" placeholder="" rows="6"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label class="control-label">Que dois-je faire ?</label>
+                                                <p class="calendar">"Ecrivez la liste de vos tâches dans le champs de gauche, changez la date juste au dessus. Passez en mode calendrier en bas à gauche. A vous de jouer 🏆</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="wizard-footer">
+                                <div class="pull-right">
+                                    <input id="btn-reglage" type='button' class='btn btn-next btn-fill btn-info btn-wd' name='next' value='Réglages' />
+                                    <input type='button' class='btn btn-finish btn-fill btn-info btn-wd' name='finish' value='Réglages' />
+                                </div>
+                            <div class="pull-left">
+                                <!--<input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Calendrier' />-->
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+                </div> <!-- wizard container -->
+                </div>
+            </div> <!-- row -->
+        </div> <!--  big container -->
+    </div>
+
+
     <!---------------------------------------------------------------------------------------------------->
     <!---------------------------------------------------------------------------------------------------->
     <!------------------------------------[FIN SECTION INTERFACE ]---------------------------------------->
@@ -215,12 +364,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        
     <!-- Nos Scripts JavaScript -->
-    <script src="./assets/js/style.js" crossorigin="anonymous"></script>
-    <script src="./assets/js/index.js" crossorigin="anonymous"></script>
-    <script src="./assets/js/login.js" crossorigin="anonymous"></script>
-    <script src="./assets/js/interface.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/style.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script src="./assets/js/user.js"></script>
+    <!--<script src="./assets/js/myJS.js"></script>-->
+    <script src="./assets/js/interface.js"></script>
 
     </body>
 </html>

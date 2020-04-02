@@ -6,12 +6,19 @@ $(document).ready( function(){
     let accueil = $('#accueil');
     let connexion = $('#connexion');
     let register = $('#register');
+    let interface = $('#interface');
 
     // Affichage au démarrage du site
     $(navbar).show();
     $(accueil).show();
     $(connexion).hide();
     $(register).hide();
+    $(interface).hide();
+    $('link[data-role="index"]').prop('disabled', null);
+    $('link[data-role="login"]').prop('disabled', null);
+    $('link[data-role="interface"]').prop('disabled', 'true');
+
+
 
 
     //Boutons de login, register, et bouton d'accueil

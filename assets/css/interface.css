@@ -17,6 +17,10 @@
     background-color: initial;
     color: initial;
   }
+
+
+
+  
   
   blockquote p {
     font-style: italic;
@@ -352,6 +356,7 @@
     background-color: #00bcd4;
     top: -4px;
     left: 0px;
+    width: 333px!important;
     border-radius: 4px;
     color: #FFFFFF;
     cursor: pointer;

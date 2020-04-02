@@ -348,13 +348,6 @@
             'nextSelector': '.btn-next',
             'previousSelector': '.btn-previous',
     
-            onNext: function(tab, navigation, index) {
-                var $valid = $('.wizard-card form').valid();
-                if(!$valid) {
-                    $validator.focusInvalid();
-                    return false;
-                }
-            },
     
             onInit : function(tab, navigation, index){
     
@@ -364,12 +357,14 @@
               var $wizard = navigation.closest('.wizard-card');
     
               $display_width = $(document).width();
-    
+            console.log($display_width)
               if($display_width < 600 && $total > 3){
                   $width = 50;
+              }else{
+                $('.moving-tab').css('width','300px!important');
               }
     
-               navigation.find('li').css('width',$width + '%');
+               navigation.find('li').css('width', $width + '%');
                $first_li = navigation.find('li:first-child a').html();
                $moving_div = $('<div class="moving-tab">' + $first_li + '</div>');
                $('.wizard-card .wizard-navigation').append($moving_div);
@@ -397,7 +392,7 @@
                 var $wizard = navigation.closest('.wizard-card');
 
 
-
+                $($wizard).find('h5').html('Planifiez votre journée et votre réussite ' + localStorage.getItem("Pseudo")+' !');
 
 
 
