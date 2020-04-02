@@ -19,7 +19,18 @@
   }
 
 
-
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+   
+  body::-webkit-scrollbar-track {
+    background-color: white;
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    background-color: #00bcd4;
+    border-radius: 12px;
+  }
   
   
   blockquote p {
@@ -216,11 +227,6 @@
     margin-bottom: 30px;
   }
   
-  .calendar,
-  .card-calendar,
-  .footer-big p {
-    color: #999999;
-  }
   
   .text-warning {
     color: #ff9800;
@@ -529,10 +535,8 @@
   .wizard-card .btn-finish {
     display: none;
   }
-  .wizard-card .calendar {
-    color: #999999;
-    font-size: 14px;
-  }
+
+
   .wizard-card .wizard-title {
     margin: 0;
   }

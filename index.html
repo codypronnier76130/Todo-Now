@@ -16,7 +16,8 @@
         <!-- Bootstrap [INTERFACE] CSS -->
         <link data-role="interface" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
         <link data-role="interface" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,300,700" crossorigin="anonymous">
-        
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css" rel="stylesheet" />
+
         <!-- SCRIPT FONT AWESOME -->
         <script src="https://kit.fontawesome.com/7279b46370.js" crossorigin="anonymous"></script>
         
@@ -25,6 +26,7 @@
         <link rel="stylesheet" href="./assets/css/index.css" data-role="index">
         <link rel="stylesheet" href="./assets/css/login.css" data-role="login">
         <link rel="stylesheet" href="./assets/css/interface.css" data-role="interface">
+        <link rel="stylesheet" href="./assets/css/calendar.css" data-role="interface">
     </head>
     <body>
 
@@ -304,17 +306,20 @@
 
 
 
-                                <!-- CALENDRIER -->
-                                <div class="tab-pane" id="focus">
 
+
+
+                                <!--CALENDRIER-->
+                                <div class="tab-pane" id="calendarDisp">
+                                    <div class="row">
+                                          <div id="calendar" class="calendar"></div>
+                                    </div>
                                 </div>
-
-
-
+                      
 
 
                                 <!-- AJOUT DE TACHES DANS LE CALENDRIER-->
-                                <div class="tab-pane" id="calendar">
+                                <div class="tab-pane" id="calendarCrud">
                                     <div class="row">
                                         <h4 class="info-text">Votre calendrier 📌</h4>
                                         <div class="col-sm-4"></div>
@@ -334,7 +339,6 @@
                                         <div class="col-sm-6 col-sm-offset-1">
                                             <div class="form-group">
                                                 <label>Liste des tâches du : 01/04/2020</label>
-                                                <textarea class="form-control" placeholder="" rows="6"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
@@ -351,7 +355,7 @@
 
                             <div class="wizard-footer">
                                 <div class="pull-right">
-                                    <input id="btn-reglage" type='button' class='btn btn-next btn-fill btn-info btn-wd' name='next' value='Réglages' />
+                                    <input id="btn-reglage" type='button' class='btn btn-next btn-fill btn-info btn-wd' name='next' value='Réglages' style="cursor: pointer;"/>
                                     <input type='button' class='btn btn-finish btn-fill btn-info btn-wd' name='finish' value='Réglages' />
                                 </div>
                             <div class="pull-left">
@@ -396,12 +400,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
-        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js"></script>
+
     <!-- Nos Scripts JavaScript -->
     <script src="./assets/js/style.js"></script>
     <script src="./assets/js/index.js"></script>
     <script src="./assets/js/user.js"></script>
     <script src="./assets/js/interface.js"></script>
+    <script src="./assets/js/calendar.js"></script>
 
     </body>
 </html>

@@ -340,7 +340,6 @@
               var $wizard = navigation.closest('.wizard-card');
     
               $display_width = $(document).width();
-            console.log($display_width)
               if($display_width < 600 && $total > 3){
                   $width = 50;
               }else{
@@ -396,7 +395,8 @@
                 if($current === 1){
                     $("#listCrud").hide();
                     $('#focus').hide();
-                    $('#calendar').hide();
+                    $('#calendarDisp').hide();
+                    $('#calendarCrud').hide();
                     $('#list').show();
 
 
@@ -418,7 +418,7 @@
     
                         });
                     }else{
-                        console.log('Aucune tâche trouvée');
+
                     }
 
 
@@ -484,7 +484,8 @@
                 }else if($current === 2){
                     $('#list').hide();
                     $('#listCrud').hide();
-                    $('#calendar').hide();
+                    $('#calendarDisp').hide();
+                    $('#calendarCrud').hide();
                     $('#focus').fadeIn();
                     $($wizard).find('.btn-next').val("Réglages du Focus");
 
@@ -542,8 +543,9 @@
                 }else if ($current === 3){
                     $('#list').hide();
                     $('#listCrud').hide();
-                    $('#calendar').hide();
+                    $('#calendarDisp').show();
                     $('#focus').hide();
+                    $('#calendarCrud').hide();
                     
                     let $button2 = $($wizard).find('.btn-next');
                     $button2.show();
@@ -552,7 +554,8 @@
                     console.log($current);
 
                     $($button2).click(function(){
-                        $("#calendar").fadeIn();
+                        $("#calendarDisp").hide();
+                        $('#calendarCrud').fadeIn();
                         $($button2).val("Valider");
                     });
 
